@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolag.wtf - Installer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to Nolag.wtf</h1>
+        <p>Your one-stop solution to improve your system's performance.</p>
+
+        <div class="installation-box">
+            <h2>Installation Instructions</h2>
+            <p>1. Open Run By Doing ⊞ + R</p>
+            <p>2. Inside of the textbox, put the script that you copied here and press Enter</p>
+
+            <div class="installer-box">
+                <textarea id="installer-script" readonly>iwr "nolag.wtf/installer" | iex</textarea>
+                <button id="copy-btn" onclick="copyToClipboard()">
+                    <i class="fa fa-clipboard"></i> Copy to Clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Nolag.wtf</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
