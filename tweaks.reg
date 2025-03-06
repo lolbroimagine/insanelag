@@ -1,0 +1,48 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+"DefaultTTL"=dword:00000040
+"TcpTimedWaitDelay"=dword:0000001e
+"GlobalMaxTcpWindowSize"=dword:0000ffff
+"TcpMaxDataRetransmissions"=dword:00000003
+"TcpMaxDupAcks"=dword:00000002
+"TcpMaxSendFree"=dword:0000ffff
+"TcpNumConnections"=dword:00fffffe
+"MaxHashTableSize"=dword:00010000
+"MaxUserPort"=dword:0000fffe
+"DelayedAckFrequency"=dword:00000001
+"DelayedAckTicks"=dword:00000001
+"TcpAckFrequency"=dword:00000001
+"TCPNoDelay"=dword:00000001
+"Tcp1323Opts"=dword:00000001
+"TcpWindowSize"=dword:0005ae4c
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\Parameters]
+"TCPNoDelay"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Psched]
+"NonBestEffortLimit"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Psched]
+"NonBestEffortLimit"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AFD\Parameters]
+"DmaRemappingCompatible"=dword:00000000
+"DoNotHoldNicBuffers"=dword:00000001
+"DisableRawSecurity"=dword:00000001
+"DynamicSendBufferDisable"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:ffffffff
+"SystemResponsiveness"=dword:00000000
+"LatencySensitivity"=dword:00000001  ; Prioritizes low-latency operations for real-time processes
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=dword:00000000
+"PagedPoolSize"=dword:ffffffff   ; Allocates maximum paged pool memory for better network performance
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling]
+"PowerThrottlingOff"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Power]
+"DCSettingIndex"=dword:00000000  ; Ensures optimal power settings for gaming performance
